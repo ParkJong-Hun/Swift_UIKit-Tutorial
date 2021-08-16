@@ -7,16 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    var pageCount = [1, 2, 3]
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var pageControl: UIPageControl!
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        return cell
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageControl.numberOfPages = pageCount.count
-        pageControl.currentPage = 0
-    }
-    @IBAction func pageChanged(_ sender: UIPageControl) {
-        label.text = "\(pageCount[pageControl.currentPage])"
     }
 }
