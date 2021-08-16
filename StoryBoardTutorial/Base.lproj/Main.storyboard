@@ -16,21 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiY-uS-W8x">
-                                <rect key="frame" x="176" y="407" width="38" height="30"/>
-                                <state key="normal" title="Show"/>
-                                <connections>
-                                    <action selector="showAlert:" destination="XLw-hs-5U4" eventType="touchUpInside" id="YPe-Gl-qwH"/>
-                                </connections>
-                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1Nw-O4-YQp">
+                                <rect key="frame" x="185" y="412" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please for waiting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzL-iW-V3E">
+                                <rect key="frame" x="121" y="459" width="148" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nYB-yu-qlc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nYB-yu-qlc" firstAttribute="bottom" secondItem="HiY-uS-W8x" secondAttribute="bottom" constant="373" id="6hO-Uh-Y0F"/>
-                            <constraint firstItem="HiY-uS-W8x" firstAttribute="top" secondItem="nYB-yu-qlc" secondAttribute="top" constant="363" id="XbD-s9-tMH"/>
-                            <constraint firstItem="nYB-yu-qlc" firstAttribute="trailing" secondItem="HiY-uS-W8x" secondAttribute="trailing" constant="176" id="dcg-hb-UmL"/>
-                            <constraint firstItem="HiY-uS-W8x" firstAttribute="leading" secondItem="nYB-yu-qlc" secondAttribute="leading" constant="176" id="pZN-1d-tsG"/>
+                            <constraint firstItem="1Nw-O4-YQp" firstAttribute="centerX" secondItem="NZh-CQ-RlL" secondAttribute="centerX" id="JMq-Rl-V3z"/>
+                            <constraint firstItem="RzL-iW-V3E" firstAttribute="leading" secondItem="nYB-yu-qlc" secondAttribute="leading" constant="121" id="VRh-2G-f2U"/>
+                            <constraint firstItem="RzL-iW-V3E" firstAttribute="top" secondItem="1Nw-O4-YQp" secondAttribute="bottom" constant="27" id="rp3-CO-dJb"/>
+                            <constraint firstItem="1Nw-O4-YQp" firstAttribute="centerY" secondItem="NZh-CQ-RlL" secondAttribute="centerY" id="z7v-hD-3pz"/>
                         </constraints>
                     </view>
                 </viewController>
