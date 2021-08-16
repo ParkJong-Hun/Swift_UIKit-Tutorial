@@ -8,8 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var pageCount = [1, 2, 3]
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var pageControl: UIPageControl!
     override func viewDidLoad() {
         super.viewDidLoad()
+        pageControl.numberOfPages = pageCount.count
+        pageControl.currentPage = 0
+    }
+    @IBAction func pageChanged(_ sender: UIPageControl) {
+        label.text = "\(pageCount[pageControl.currentPage])"
     }
 }
-
