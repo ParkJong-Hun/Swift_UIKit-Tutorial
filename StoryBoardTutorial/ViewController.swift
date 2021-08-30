@@ -8,46 +8,37 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var cellName = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var current_image:Int = 0
+    var images:[Int:String] = [
+        0:"tiger",
+        1:"eagle",
+        2:"mountain"
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
     }
-}
-//커스텀 셀
-class CustomCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var label: UILabel!
-}
-
-//컬렉션 뷰
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cellName.count
+    
+    @IBOutlet weak var image_view: UIImageView!
+    @IBAction func prev_button(_ sender: Any) {
+        if current_image > 0 {
+            current_image -= 1
+        } else {
+            current_image = get_count()
+        }
+        image_view.image = UIImage(named: images[current_image]!)
     }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCollectionViewCell
-        cell.backgroundColor = UIColor.lightGray
-        cell.label.text = String(cellName[indexPath.row])
-        cell.label.backgroundColor = UIColor.white
-        return cell
+    @IBAction func next_button(_ sender: Any) {
+        if current_image < images.count - 1 {
+            current_image += 1
+        } else {
+            current_image = 0
+        }
+        image_view.image = UIImage(named: images[current_image]!)
     }
-}
-//셀 레이아웃
-extension ViewController: UICollectionViewDelegateFlowLayout {
-    //위아래 간격
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 1
-    }
-    //옆 간격
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 1
-    }
-    //셀 사이즈
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let width = collectionView.frame.width / 3 - 1
-            let size = CGSize(width: width, height: width)
-            return size
+    
+    func get_count() -> Int {
+        return images.count - 1
     }
 }
