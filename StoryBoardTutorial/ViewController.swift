@@ -35,6 +35,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func clicked_searchBtn(_ sender: Any) {
         searching = search_bar.text!
         searching_country = country.filter{$0.contains(searching!)}
+        if searching == "" {
+            searching_country! = country
+        }
         tableView.reloadData()
     }
 }
