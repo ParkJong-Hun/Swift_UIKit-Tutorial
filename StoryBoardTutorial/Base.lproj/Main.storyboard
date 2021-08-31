@@ -16,42 +16,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tiger" translatesAutoresizingMaskIntoConstraints="NO" id="KPA-M0-c0i">
-                                <rect key="frame" x="0.0" y="244" width="390" height="356"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMP-AO-lyV">
-                                <rect key="frame" x="15.999999999999996" y="409" width="62.666666666666657" height="25"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Prev" image="chevron.left.circle.fill" catalog="system"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="uU9-Fu-4n7">
+                                <rect key="frame" x="0.0" y="44" width="318" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sGE-6M-vM1">
+                                <rect key="frame" x="0.0" y="95" width="390" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="sP0-dt-S3W">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="30.666666030883789"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sP0-dt-S3W" id="RxG-JU-SsL">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="30.666666030883789"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7qn-5c-bB4">
+                                                    <rect key="frame" x="350.66666666666669" y="3.3333333333333339" width="19.333333333333314" height="18.666666666666664"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="7qn-5c-bB4" secondAttribute="trailing" constant="20" symbolic="YES" id="BQI-Fk-J3h"/>
+                                                <constraint firstItem="7qn-5c-bB4" firstAttribute="top" secondItem="RxG-JU-SsL" secondAttribute="top" constant="2" id="OHt-Z8-i74"/>
+                                                <constraint firstAttribute="bottom" secondItem="7qn-5c-bB4" secondAttribute="bottom" constant="8" id="rdB-8B-Isa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYv-LS-iIm">
+                                <rect key="frame" x="318" y="44" width="72" height="51"/>
+                                <state key="normal" title="Search"/>
                                 <connections>
-                                    <action selector="prev_button:" destination="FQm-tR-MPU" eventType="touchUpInside" id="esk-I0-0rH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJW-MU-vaU">
-                                <rect key="frame" x="309" y="408" width="64.666666666666686" height="25"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Next" image="chevron.right.circle.fill" catalog="system">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="next_button:" destination="FQm-tR-MPU" eventType="touchUpInside" id="tIq-OC-qBe"/>
+                                    <action selector="clicked_searchBtn:" destination="FQm-tR-MPU" eventType="touchUpInside" id="0Iq-YP-vCX"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gjR-nE-rw8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gjR-nE-rw8" firstAttribute="bottom" secondItem="UJW-MU-vaU" secondAttribute="bottom" constant="377" id="0bq-SJ-P7M"/>
-                            <constraint firstItem="bMP-AO-lyV" firstAttribute="top" secondItem="gjR-nE-rw8" secondAttribute="top" constant="365" id="Gm8-yj-1Dh"/>
-                            <constraint firstItem="bMP-AO-lyV" firstAttribute="leading" secondItem="gjR-nE-rw8" secondAttribute="leading" constant="16" id="K3i-kO-gMc"/>
-                            <constraint firstItem="UJW-MU-vaU" firstAttribute="top" secondItem="gjR-nE-rw8" secondAttribute="top" constant="364" id="io1-HM-x0R"/>
-                            <constraint firstItem="gjR-nE-rw8" firstAttribute="bottom" secondItem="bMP-AO-lyV" secondAttribute="bottom" constant="376" id="jNU-Q1-8K9"/>
-                            <constraint firstItem="gjR-nE-rw8" firstAttribute="trailing" secondItem="UJW-MU-vaU" secondAttribute="trailing" constant="16.329999999999998" id="y2U-ha-fgy"/>
+                            <constraint firstItem="gjR-nE-rw8" firstAttribute="trailing" secondItem="uU9-Fu-4n7" secondAttribute="trailing" constant="72" id="A2R-Fv-QBk"/>
+                            <constraint firstItem="dYv-LS-iIm" firstAttribute="leading" secondItem="uU9-Fu-4n7" secondAttribute="trailing" id="Be1-7z-TnJ"/>
+                            <constraint firstItem="sGE-6M-vM1" firstAttribute="trailing" secondItem="gjR-nE-rw8" secondAttribute="trailing" id="L7O-Xg-k9a"/>
+                            <constraint firstItem="dYv-LS-iIm" firstAttribute="trailing" secondItem="gjR-nE-rw8" secondAttribute="trailing" id="PUh-uf-uJW"/>
+                            <constraint firstItem="sGE-6M-vM1" firstAttribute="leading" secondItem="gjR-nE-rw8" secondAttribute="leading" id="R4w-c1-kYK"/>
+                            <constraint firstItem="sGE-6M-vM1" firstAttribute="bottom" secondItem="gjR-nE-rw8" secondAttribute="bottom" id="YKP-6j-aZi"/>
+                            <constraint firstItem="sGE-6M-vM1" firstAttribute="top" secondItem="dYv-LS-iIm" secondAttribute="bottom" id="cy8-FK-AjI"/>
+                            <constraint firstItem="dYv-LS-iIm" firstAttribute="top" secondItem="gjR-nE-rw8" secondAttribute="top" id="fZ4-cI-y0a"/>
+                            <constraint firstItem="uU9-Fu-4n7" firstAttribute="leading" secondItem="gjR-nE-rw8" secondAttribute="leading" id="h01-iT-0gT"/>
+                            <constraint firstItem="sGE-6M-vM1" firstAttribute="top" secondItem="uU9-Fu-4n7" secondAttribute="bottom" id="leJ-Ez-R7f"/>
+                            <constraint firstItem="uU9-Fu-4n7" firstAttribute="top" secondItem="gjR-nE-rw8" secondAttribute="top" id="r9t-3m-BPm"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="image_view" destination="KPA-M0-c0i" id="Ygh-ql-DXT"/>
+                        <outlet property="search_bar" destination="uU9-Fu-4n7" id="qOu-yo-NL1"/>
+                        <outlet property="tableView" destination="sGE-6M-vM1" id="Jxu-kE-bPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jv-Xd-3IK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -60,9 +79,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="chevron.right.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="tiger" width="3554" height="1999"/>
+        <image name="flag" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

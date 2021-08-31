@@ -7,38 +7,34 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
-    var current_image:Int = 0
-    var images:[Int:String] = [
-        0:"tiger",
-        1:"eagle",
-        2:"mountain"
-    ]
-    
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    var country = ["Seoul", "Tokyo", "Los Angeles", "New york", "Paris", "London", "Shanghai", "Beijing"]
+    var searching_country:[String]?
+    var searching:String?
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let c = searching_country { return c.count }
+        else { return country.count }
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        if searching_country != nil {
+            cell.textLabel!.text = searching_country![indexPath.row]
+        } else {
+            cell.textLabel!.text = country[indexPath.row]
+        }
+        return cell
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        search_bar.delegate = self
     }
-    
-    @IBOutlet weak var image_view: UIImageView!
-    @IBAction func prev_button(_ sender: Any) {
-        if current_image > 0 {
-            current_image -= 1
-        } else {
-            current_image = get_count()
-        }
-        image_view.image = UIImage(named: images[current_image]!)
-    }
-    @IBAction func next_button(_ sender: Any) {
-        if current_image < images.count - 1 {
-            current_image += 1
-        } else {
-            current_image = 0
-        }
-        image_view.image = UIImage(named: images[current_image]!)
-    }
-    
-    func get_count() -> Int {
-        return images.count - 1
+    @IBOutlet weak var search_bar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    @IBAction func clicked_searchBtn(_ sender: Any) {
+        searching = search_bar.text!
+        searching_country = country.filter{$0.contains(searching!)}
+        tableView.reloadData()
     }
 }
