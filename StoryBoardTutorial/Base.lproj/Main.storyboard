@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FQm-tR-MPU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FQm-tR-MPU">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,32 +16,9 @@
                     <view key="view" contentMode="scaleToFill" id="tTx-Lv-8VP">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wmS-DQ-AQ2">
-                                <rect key="frame" x="0.0" y="44" width="390" height="737"/>
-                            </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXi-yT-DjW">
-                                <rect key="frame" x="174" y="789" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gjR-nE-rw8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="wmS-DQ-AQ2" firstAttribute="trailing" secondItem="gjR-nE-rw8" secondAttribute="trailing" id="9KW-va-v92"/>
-                            <constraint firstItem="CXi-yT-DjW" firstAttribute="bottom" secondItem="gjR-nE-rw8" secondAttribute="bottom" id="L2K-Z9-vbm"/>
-                            <constraint firstItem="CXi-yT-DjW" firstAttribute="top" secondItem="wmS-DQ-AQ2" secondAttribute="bottom" constant="8" symbolic="YES" id="Qab-tR-USS"/>
-                            <constraint firstItem="wmS-DQ-AQ2" firstAttribute="leading" secondItem="gjR-nE-rw8" secondAttribute="leading" id="Qch-ek-CHe"/>
-                            <constraint firstItem="gjR-nE-rw8" firstAttribute="trailing" secondItem="CXi-yT-DjW" secondAttribute="trailing" constant="174" id="Xh9-1e-Qbl"/>
-                            <constraint firstItem="CXi-yT-DjW" firstAttribute="leading" secondItem="gjR-nE-rw8" secondAttribute="leading" constant="174" id="qg5-pk-qWy"/>
-                            <constraint firstItem="wmS-DQ-AQ2" firstAttribute="top" secondItem="gjR-nE-rw8" secondAttribute="top" id="wlj-Hn-sTO"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="mapView" destination="wmS-DQ-AQ2" id="s1A-31-9bP"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jv-Xd-3IK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

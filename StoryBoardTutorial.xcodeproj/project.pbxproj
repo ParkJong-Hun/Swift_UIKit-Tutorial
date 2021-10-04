@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5689884F7A4AB19126AE1745 /* libPods-StoryBoardTutorial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 969D981CF38D95623CC6D723 /* libPods-StoryBoardTutorial.a */; };
 		6B284B1926C25221007DBC72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B284B1826C25221007DBC72 /* AppDelegate.swift */; };
 		6B284B1B26C25221007DBC72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B284B1A26C25221007DBC72 /* SceneDelegate.swift */; };
 		6B284B1D26C25221007DBC72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B284B1C26C25221007DBC72 /* ViewController.swift */; };
 		6B284B2026C25221007DBC72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B284B1E26C25221007DBC72 /* Main.storyboard */; };
 		6B284B2226C25222007DBC72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B284B2126C25222007DBC72 /* Assets.xcassets */; };
 		6B284B2526C25222007DBC72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B284B2326C25222007DBC72 /* LaunchScreen.storyboard */; };
+		6BA1F101270AE4A800B92D41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BA1F100270AE4A800B92D41 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00C1AED60CB534B4E370BAD1 /* Pods-StoryBoardTutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTutorial.release.xcconfig"; path = "Target Support Files/Pods-StoryBoardTutorial/Pods-StoryBoardTutorial.release.xcconfig"; sourceTree = "<group>"; };
+		29AE33CCD0DAEF2B20B03F37 /* Pods-StoryBoardTutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTutorial.debug.xcconfig"; path = "Target Support Files/Pods-StoryBoardTutorial/Pods-StoryBoardTutorial.debug.xcconfig"; sourceTree = "<group>"; };
 		6B284B1526C25221007DBC72 /* StoryBoardTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryBoardTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B284B1826C25221007DBC72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B284B1A26C25221007DBC72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,9 @@
 		6B284B2126C25222007DBC72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B284B2426C25222007DBC72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B284B2626C25222007DBC72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BA1F0FE270AE2D000B92D41 /* StoryBoardTutorial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StoryBoardTutorial.entitlements; sourceTree = "<group>"; };
+		6BA1F100270AE4A800B92D41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		969D981CF38D95623CC6D723 /* libPods-StoryBoardTutorial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoryBoardTutorial.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +38,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5689884F7A4AB19126AE1745 /* libPods-StoryBoardTutorial.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C12B9978E4569D711C0A4AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				969D981CF38D95623CC6D723 /* libPods-StoryBoardTutorial.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6B284B0C26C25221007DBC72 = {
 			isa = PBXGroup;
 			children = (
 				6B284B1726C25221007DBC72 /* StoryBoardTutorial */,
 				6B284B1626C25221007DBC72 /* Products */,
+				F03F477B179880EF96427786 /* Pods */,
+				3C12B9978E4569D711C0A4AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +74,8 @@
 		6B284B1726C25221007DBC72 /* StoryBoardTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				6BA1F100270AE4A800B92D41 /* GoogleService-Info.plist */,
+				6BA1F0FE270AE2D000B92D41 /* StoryBoardTutorial.entitlements */,
 				6B284B1826C25221007DBC72 /* AppDelegate.swift */,
 				6B284B1A26C25221007DBC72 /* SceneDelegate.swift */,
 				6B284B1C26C25221007DBC72 /* ViewController.swift */,
@@ -67,6 +87,15 @@
 			path = StoryBoardTutorial;
 			sourceTree = "<group>";
 		};
+		F03F477B179880EF96427786 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29AE33CCD0DAEF2B20B03F37 /* Pods-StoryBoardTutorial.debug.xcconfig */,
+				00C1AED60CB534B4E370BAD1 /* Pods-StoryBoardTutorial.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +103,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B284B2926C25222007DBC72 /* Build configuration list for PBXNativeTarget "StoryBoardTutorial" */;
 			buildPhases = (
+				E1B3F6A81C182BD871C7D77E /* [CP] Check Pods Manifest.lock */,
 				6B284B1126C25221007DBC72 /* Sources */,
 				6B284B1226C25221007DBC72 /* Frameworks */,
 				6B284B1326C25221007DBC72 /* Resources */,
@@ -125,12 +155,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B284B2526C25222007DBC72 /* LaunchScreen.storyboard in Resources */,
+				6BA1F101270AE4A800B92D41 /* GoogleService-Info.plist in Resources */,
 				6B284B2226C25222007DBC72 /* Assets.xcassets in Resources */,
 				6B284B2026C25221007DBC72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E1B3F6A81C182BD871C7D77E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StoryBoardTutorial-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6B284B1126C25221007DBC72 /* Sources */ = {
@@ -283,9 +339,11 @@
 		};
 		6B284B2A26C25222007DBC72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29AE33CCD0DAEF2B20B03F37 /* Pods-StoryBoardTutorial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StoryBoardTutorial/StoryBoardTutorial.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T7Z9C78A9;
 				INFOPLIST_FILE = StoryBoardTutorial/Info.plist;
@@ -303,9 +361,11 @@
 		};
 		6B284B2B26C25222007DBC72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00C1AED60CB534B4E370BAD1 /* Pods-StoryBoardTutorial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StoryBoardTutorial/StoryBoardTutorial.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T7Z9C78A9;
 				INFOPLIST_FILE = StoryBoardTutorial/Info.plist;
