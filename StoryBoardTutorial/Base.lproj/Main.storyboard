@@ -13,39 +13,12 @@
         <scene sceneID="XEB-ze-XlE">
             <objects>
                 <viewController id="FQm-tR-MPU" customClass="ViewController" customModule="StoryBoardTutorial" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tTx-Lv-8VP">
+                    <view key="view" contentMode="scaleToFill" id="NQh-sK-5Yj">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFu-L7-Val">
-                                <rect key="frame" x="95" y="405" width="200" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="5Kt-tD-hA6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPx-vO-plf">
-                                <rect key="frame" x="20" y="376" width="350" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="gjR-nE-rw8"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                        <constraints>
-                            <constraint firstItem="gjR-nE-rw8" firstAttribute="trailing" secondItem="WPx-vO-plf" secondAttribute="trailing" constant="20" id="MQi-hm-3sw"/>
-                            <constraint firstItem="GFu-L7-Val" firstAttribute="centerX" secondItem="tTx-Lv-8VP" secondAttribute="centerX" id="T9G-DI-VJW"/>
-                            <constraint firstItem="GFu-L7-Val" firstAttribute="top" secondItem="WPx-vO-plf" secondAttribute="bottom" constant="8" symbolic="YES" id="ieU-v8-l37"/>
-                            <constraint firstItem="GFu-L7-Val" firstAttribute="centerY" secondItem="tTx-Lv-8VP" secondAttribute="centerY" id="klL-R9-Hcv"/>
-                            <constraint firstItem="WPx-vO-plf" firstAttribute="leading" secondItem="gjR-nE-rw8" secondAttribute="leading" constant="20" id="rjx-K8-nCH"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Sa-F4-Slw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <connections>
-                        <outlet property="field" destination="GFu-L7-Val" id="j7u-Vs-LHW"/>
-                        <outlet property="label" destination="WPx-vO-plf" id="abF-dn-4jv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jv-Xd-3IK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,8 +26,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
