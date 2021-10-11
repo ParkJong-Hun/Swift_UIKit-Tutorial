@@ -16,48 +16,8 @@
                     <view key="view" contentMode="scaleToFill" id="NQh-sK-5Yj">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Qw2-xc-2aZ">
-                                <rect key="frame" x="0.0" y="100" width="390" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="zKg-t9-xDy"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Og7-yH-YRM">
-                                <rect key="frame" x="20" y="44" width="350" height="48"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kr5-LO-uqV">
-                                <rect key="frame" x="20" y="626" width="350" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="wHh-mn-HGy"/>
-                                </constraints>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you. Thank you for installation our app. This is first view of our app." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhV-DG-2Iq">
-                                <rect key="frame" x="20" y="412" width="350" height="40.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Sa-F4-Slw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kr5-LO-uqV" firstAttribute="leading" secondItem="6Sa-F4-Slw" secondAttribute="leading" constant="20" id="2BZ-do-ihG"/>
-                            <constraint firstItem="6Sa-F4-Slw" firstAttribute="trailing" secondItem="Og7-yH-YRM" secondAttribute="trailing" constant="20" id="2yz-gR-uZn"/>
-                            <constraint firstAttribute="trailing" secondItem="IhV-DG-2Iq" secondAttribute="trailing" constant="20" id="3vi-oI-KfX"/>
-                            <constraint firstItem="Qw2-xc-2aZ" firstAttribute="leading" secondItem="6Sa-F4-Slw" secondAttribute="leading" id="77O-3V-sO1"/>
-                            <constraint firstItem="Qw2-xc-2aZ" firstAttribute="top" secondItem="Og7-yH-YRM" secondAttribute="bottom" constant="8" symbolic="YES" id="9ag-fQ-1ek"/>
-                            <constraint firstItem="kr5-LO-uqV" firstAttribute="top" secondItem="Qw2-xc-2aZ" secondAttribute="bottom" constant="226" id="C0j-bg-UVK"/>
-                            <constraint firstItem="IhV-DG-2Iq" firstAttribute="leading" secondItem="6Sa-F4-Slw" secondAttribute="leading" constant="20" id="EIL-qz-L92"/>
-                            <constraint firstItem="Og7-yH-YRM" firstAttribute="top" secondItem="6Sa-F4-Slw" secondAttribute="top" id="Ook-Sh-eM8"/>
-                            <constraint firstItem="Qw2-xc-2aZ" firstAttribute="trailing" secondItem="6Sa-F4-Slw" secondAttribute="trailing" id="n4z-WG-dIE"/>
-                            <constraint firstItem="Og7-yH-YRM" firstAttribute="leading" secondItem="6Sa-F4-Slw" secondAttribute="leading" constant="20" id="nll-QH-VDk"/>
-                            <constraint firstItem="6Sa-F4-Slw" firstAttribute="trailing" secondItem="kr5-LO-uqV" secondAttribute="trailing" constant="20" id="qoR-DV-SSE"/>
-                            <constraint firstItem="IhV-DG-2Iq" firstAttribute="top" secondItem="Qw2-xc-2aZ" secondAttribute="bottom" constant="12" id="xXM-3k-ocv"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="The Real App" id="wh9-po-ZtO"/>
                 </viewController>
@@ -67,7 +27,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="1000" height="667"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
