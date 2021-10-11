@@ -9,17 +9,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--The Real App-->
+        <!--View Controller-->
         <scene sceneID="XEB-ze-XlE">
             <objects>
                 <viewController id="FQm-tR-MPU" customClass="ViewController" customModule="StoryBoardTutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NQh-sK-5Yj">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uhR-Cn-w2u">
+                                <rect key="frame" x="0.0" y="44" width="390" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="GtC-aF-gAr"/>
+                                </constraints>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HdY-ip-7Cn">
+                                <rect key="frame" x="20" y="352" width="350" height="4"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIy-Pb-nuf">
+                                <rect key="frame" x="20" y="364" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJY-wk-OpY">
+                                <rect key="frame" x="20" y="407" width="350" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Download"/>
+                                <connections>
+                                    <action selector="downloadBtnClicked:" destination="FQm-tR-MPU" eventType="touchUpInside" id="h2h-ER-CK2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Sa-F4-Slw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uhR-Cn-w2u" firstAttribute="leading" secondItem="6Sa-F4-Slw" secondAttribute="leading" id="2yu-Lr-5on"/>
+                            <constraint firstItem="pIy-Pb-nuf" firstAttribute="leading" secondItem="6Sa-F4-Slw" secondAttribute="leading" constant="20" id="41H-6Y-vnB"/>
+                            <constraint firstItem="fJY-wk-OpY" firstAttribute="top" secondItem="pIy-Pb-nuf" secondAttribute="bottom" constant="22" id="67A-df-6FR"/>
+                            <constraint firstItem="6Sa-F4-Slw" firstAttribute="trailing" secondItem="HdY-ip-7Cn" secondAttribute="trailing" constant="20" id="8WQ-fm-wFM"/>
+                            <constraint firstItem="6Sa-F4-Slw" firstAttribute="trailing" secondItem="pIy-Pb-nuf" secondAttribute="trailing" constant="20" id="DVb-4i-hcw"/>
+                            <constraint firstItem="uhR-Cn-w2u" firstAttribute="trailing" secondItem="6Sa-F4-Slw" secondAttribute="trailing" id="Fe3-pg-IHE"/>
+                            <constraint firstItem="uhR-Cn-w2u" firstAttribute="top" secondItem="6Sa-F4-Slw" secondAttribute="top" id="Xgh-4T-rHR"/>
+                            <constraint firstItem="HdY-ip-7Cn" firstAttribute="leading" secondItem="6Sa-F4-Slw" secondAttribute="leading" constant="20" id="dqd-2W-J2q"/>
+                            <constraint firstItem="6Sa-F4-Slw" firstAttribute="trailing" secondItem="fJY-wk-OpY" secondAttribute="trailing" constant="20" id="gFk-St-Ouk"/>
+                            <constraint firstItem="pIy-Pb-nuf" firstAttribute="top" secondItem="HdY-ip-7Cn" secondAttribute="bottom" constant="8" symbolic="YES" id="niN-K7-hZL"/>
+                            <constraint firstItem="HdY-ip-7Cn" firstAttribute="top" secondItem="uhR-Cn-w2u" secondAttribute="bottom" constant="8" symbolic="YES" id="t4h-fg-jVK"/>
+                            <constraint firstItem="fJY-wk-OpY" firstAttribute="leading" secondItem="6Sa-F4-Slw" secondAttribute="leading" constant="20" id="vVr-L0-Rtj"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="The Real App" id="wh9-po-ZtO"/>
+                    <connections>
+                        <outlet property="downloadImageView" destination="uhR-Cn-w2u" id="SX1-bT-DpQ"/>
+                        <outlet property="progressBar" destination="HdY-ip-7Cn" id="q3f-Ea-IsO"/>
+                        <outlet property="progressLbl" destination="pIy-Pb-nuf" id="FpL-P3-Dib"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jv-Xd-3IK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
