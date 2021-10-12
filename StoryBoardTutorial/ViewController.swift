@@ -6,65 +6,172 @@
 //
 
 import UIKit
+import CoreData
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var downloadImageView: UIImageView!
-    @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var progressLbl: UILabel!
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    //싱글톤인 AppDelegate에 만들어놓은 Container를 이용해 Context를 가져옴(AppDelegate는 앱이 설치된 순간부터 영구적으로 보존되는 데이터)
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //코딩으로 테이블뷰를 작성
+    let tableView:UITableView = {
+        let table = UITableView()
+        //테이뷸 뷰에 셀을 Identifier 이름 cell로써 생성.
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return table
+    }()
+    //빈 CoreData 객체 배열 생성.
+    private var models = [ToDoListItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //프로그레스 바의 초기값 설정
-        progressBar.progress = 0
-    }
-    //버튼 클릭했을 때
-    @IBAction func downloadBtnClicked(_ sender: UIButton) {
-        //프로그레스 바가 보이게 함.
-        progressLbl.isHidden = false
-        //이미지 뷰의 이미지를 nil로 설정
-        downloadImageView.image = nil
-        
-        //이미지를 표현하는 URL String
-        let urlString = "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/rottweiler-card-small.jpg?bust=1535568036"
-        //URL 유효성 검사해 객체 생성
-        guard let url = URL(string: urlString) else {
-            //URL이 제대로된 값인지 확인
-            print("This is an invalid URL")
-            return
-        }
-        //DownloadTask를 위한 세션 생성(큐, 델레게이션, 컨피규레이션 설정).
-        let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
-        //URL 이용해서 download 작업 실행.
-        session.downloadTask(with: url).resume()
+        //앱의 제목 초기화
+        title = "CoreData ToDoList"
+        //동적으로 만든 테이블 뷰를 뷰에 서브뷰로 추가.
+        view.addSubview(tableView)
+        getAllItems()
+        tableView.delegate = self
+        tableView.dataSource = self
+        //테이블 뷰의 크기를 뷰의 크기에 맞춤.
+        tableView.frame = view.bounds
+        //네비게이션 아이템에 누르면 didTapApp을 실행하는 오른쪽 버튼 아이템을 추가.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapApp))
     }
     
-}
-//extension 패턴으로 URLSessionDownload 부분을 분리
-extension ViewController: URLSessionDownloadDelegate {
-    //downloadTask에서 다운로드가 끝날 때
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        //locate에서 데이터를 가져옴.
-        guard let data = try? Data(contentsOf: location) else {
-            print("The data could not be loaded")
-            return
-        }
-        //가져온 데이터를 이미지 객체로 만듦.
-        let image = UIImage(data: data)
-        //비동기로 이미지뷰의 이미지를 가져온 데이터를 이용한 이미지 객체로 변경하고, 프로그레스바 안보이게 설정.
-        DispatchQueue.main.async { [weak self] in
-            self?.downloadImageView.image = image
-            self?.progressLbl.isHidden = true
+    //버튼을 눌렀을 때 액션 함수
+    @objc private func didTapApp() {
+        //Alert를 생성
+        let alert = UIAlertController(title: "New Item", message: "Enter new Item", preferredStyle: .alert)
+        //Alert에 텍스트필드 추가
+        alert.addTextField(configurationHandler: nil)
+        //약한 참조로 Submit 액션 추가
+        alert.addAction(UIAlertAction(title: "Submit", style: .cancel, handler: {[weak self] _ in
+            guard let field = alert.textFields?.first, let text = field.text, !text.isEmpty else {
+                return
+            }
+            //CoreData 생성
+            self?.createItem(name: text)
+        }))
+        //화면에 보여줌.
+        present(alert, animated: true)
+    }
+    
+    
+    
+    
+    
+    //MARK: TableView
+    //셀의 수
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models.count
+    }
+    //각 셀의 형태
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //models(ToDoListItem)객체 배열에서 해당 셀 위치와 같은 인덱스의 객체 반환
+        let model = models[indexPath.row]
+        //TableView의 해당 index에 Identifer가 cell인 셀 생성
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        //셀의 텍스트라벨을 model.name으로 변경
+        cell.textLabel?.text = model.name
+        return cell
+    }
+    //셀 선택했을 때
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //선택 상태 취소
+        tableView.deselectRow(at: indexPath, animated: true)
+        let item = models[indexPath.row]
+        //UIAlertController로 만들어진 sheet를 actionSheet스타일(하단부에 뜨는 알림창)로 생성. 제목은 Edit. 안내 메시지는 없음.
+        let sheet = UIAlertController(title: "Edit", message: nil, preferredStyle: .actionSheet)
+        //sheet에 취소 액션 추가
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        //sheet에 삭제 액션 추가
+        sheet.addAction(UIAlertAction(title: "Delete", style: .default, handler: {[weak self] _ in
+            //해당 코어 데이터 삭제
+            self?.deleteItem(item: item)
+        }))
+        //sheet에 편집 액션 추가
+        sheet.addAction(UIAlertAction(title: "Edit", style: .destructive, handler: { _ in
+            //Alert스타일(일반적인 알림)의 Alert 생성.
+            let alert = UIAlertController(title: "Edit Item", message: "Edit your Item", preferredStyle: .alert)
+            //입력할 수 있는 뷰 생성.
+            alert.addTextField(configurationHandler: nil)
+            //원래 데이터의 name을 초기값으로.
+            alert.textFields?.first?.text = item.name
+            //Alert에 Save 액션 추가
+            alert.addAction(UIAlertAction(title: "Save", style: .cancel, handler: {[weak self] _ in
+                //버튼을 눌렀을 때 일어나는 핸들러 함수
+                //텍스트 필드의 값을 newName으로 생성
+                guard let field = alert.textFields?.first, let newName = field.text, !newName.isEmpty else {
+                    return
+                }
+                //원래 값을 입력한 값(newName)으로 업데이트
+                self?.updateItem(item: item, newName: newName)
+            }))
+            //화면에 Alert를 띄움.
+            self.present(alert, animated: true)
+        }))
+        //화면에 sheet를 띄움.
+        present(sheet, animated: true)
+    }
+    
+    
+    
+    
+    
+    //MARK: CoreData
+    //Context에서 CoreData 조회
+    func getAllItems() {
+        do {
+            //models 배열에 context에 요청한 ToDoListItem 데이터들을 넣음.
+            models = try context.fetch(ToDoListItem.fetchRequest())
+            //테이블 뷰 새로고침.
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } catch {
+            //error
         }
     }
-    //downloadTask에서 데이터 다운로드(기기로 읽어들여오는) 중.
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        //현재 읽어들여온 크기 / 예상되는 전체 크기 값
-        let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
-        //비동기로 프로그레스 바를 위에서 만든 값으로 변경하고 진행도를 0이 최저고 1이 최고인 double 값이기 때문에 * 100 해서 최대를 100으로 만듦.
-        DispatchQueue.main.async { [weak self] in
-            self?.progressBar.progress = progress
-            self?.progressLbl.text = "\(progress * 100)%"
+    
+    //Context에 새 CoreData 생성
+    func createItem(name: String) {
+        let newItem = ToDoListItem(context: context)
+        //입력한 이름 값을 새 데이터의 이름으로
+        newItem.name = name
+        //현재 날자를 새 데이터의 날짜로
+        newItem.createdAt = Date()
+        
+        do {
+            //Context에 저장
+            try context.save()
+            //다시 조회(실시간 업데이트를 위해)
+            getAllItems()
+        } catch {
+            
+        }
+    }
+    
+    //Context에서 CoreData 삭제
+    func deleteItem(item: ToDoListItem) {
+        //해당하는 데이터 삭제
+        context.delete(item)
+        
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
+        }
+    }
+    
+    //Context에서 CoreData 수정
+    func updateItem(item: ToDoListItem, newName: String) {
+        //해당하는 데이터의 이름을 새 이름으로 수정
+        item.name = newName
+        
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
         }
     }
 }
